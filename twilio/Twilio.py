@@ -1,4 +1,4 @@
-from twilio_secrets import TWILIO_SID, TWILIO_AUTH_TOKEN
+from twilio.twilio_secrets import TWILIO_SID, TWILIO_AUTH_TOKEN
 from urllib import request, parse
 import base64
 
