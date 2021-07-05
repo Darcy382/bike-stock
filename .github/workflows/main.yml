@@ -37,15 +37,13 @@ jobs:
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
       run: |
-         echo "MY_PHONE_NUMBER = ${{ secrets.MY_PHONE_NUMBER }}" > secrets.py
-         echo "TWILIO_SID = ${{ secrets.TWILIO_SID }}" > twilio/twilio_secrets.py
-         echo "TWILIO_AUTH_TOKEN = ${{ secrets.TWILIO_AUTH_TOKEN }}" >> twilio/twilio_secrets.py
-         ls
+         echo "MY_PHONE_NUMBER = '${{ secrets.MY_PHONE_NUMBER }}'" > secrets.py
+         echo "TWILIO_SID = '${{ secrets.TWILIO_SID }}'" > twilio/twilio_secrets.py
+         echo "TWILIO_AUTH_TOKEN = '${{ secrets.TWILIO_AUTH_TOKEN }}'" >> twilio/twilio_secrets.py
+         
          python -m pip install --upgrade pip
          #install all dependencies as defined by requirements.txt in the current directory
          pip3 install -r requirements.txt -t .
-
-         
 
          #zip files into current directory
          zip -r bike-stock-checker.zip .
