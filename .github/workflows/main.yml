@@ -1,15 +1,7 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-      
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+   
 on:
-  #when there is a push to the master
   push:
-    branches: [ master ]
-  #when there is a pull to the master
-  pull_request:
     branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -40,19 +32,14 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
         profile_name: default
-        project_name: <your project name>
         runtime: python3.7
-        s3_bucket: <your bucket name>
     
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
       run: |
-         #install PIP
          python -m pip install --upgrade pip
          #install all dependencies as defined by requirements.txt in the current directory
          pip3 install -r requirements.txt -t .
-         #for installing invidividual modules
-         #pip3 install Flask -t .
          #zip files into current directory
          zip -r test-dep-dev.zip .
          
