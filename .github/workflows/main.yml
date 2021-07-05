@@ -40,6 +40,11 @@ jobs:
          python -m pip install --upgrade pip
          #install all dependencies as defined by requirements.txt in the current directory
          pip3 install -r requirements.txt -t .
+
+         echo "MY_PHONE_NUMBER = ${{ secrets.MY_PHONE_NUMBER }}" > secrets.py
+         echo "TWILIO_SID = ${{ secrets.TWILIO_SID }}" > twilio/twilio_secrets.py
+         echo "TWILIO_AUTH_TOKEN = ${{ secrets.TWILIO_AUTH_TOKEN }}" >> twilio/twilio_secrets.py
+
          #zip files into current directory
          zip -r bike-stock-checker.zip .
          
