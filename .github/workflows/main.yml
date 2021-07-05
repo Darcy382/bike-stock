@@ -41,11 +41,7 @@ jobs:
          #install all dependencies as defined by requirements.txt in the current directory
          pip3 install -r requirements.txt -t .
          #zip files into current directory
-         zip -r test-dep-dev.zip .
-         
-         #for installing chrome
-         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-         sudo dpkg -i google-chrome-stable_current_amd64.deb
+         zip -r bike-stock-checker.zip .
          
          #ensuring current working directory is accessible by the function--this might not be doing anything
          export PATH=$PATH:$(pwd)
