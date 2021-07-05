@@ -51,6 +51,6 @@ jobs:
       uses: appleboy/lambda-action@v0.0.4
       with:
             #name of my AWS Lambda Function
-            function_name: bike-stock-checker
+            function_name: canyon-bike-stock
             #contains all the files in my github repository
             zip_file: bike-stock-checker.zip
