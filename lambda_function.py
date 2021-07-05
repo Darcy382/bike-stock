@@ -10,7 +10,7 @@ table = dynamodb.Table("bike-stock")
 
 def get_old_stock():
     return table.get_item(Key={'bike-name': BIKE_KEY})['Item']['stock']
-
+    
 def lambda_handler(event, context):
     try: 
         canyon_html = get_html(CANYON_URL)
