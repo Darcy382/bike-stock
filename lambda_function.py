@@ -15,12 +15,12 @@ def lambda_handler(event, context):
     try:
         canyon_html = get_html(CANYON_URL)
         sizes_list = find_stock(canyon_html)
+        print(sizes_list)
         old_stock = get_old_stock()
         if old_stock != ("\n").join(sizes_list):
             Twilio.send_text(MY_PHONE_NUMBER, "ALERT: Canyon has updated their stock" + "\n".join(sizes_list))
             # Twilio.make_call(MY_PHONE_NUMBER)
             table.put_item(Item={'bike-name': BIKE_KEY, 'stock': ("\n").join(sizes_list)})
-        print("hereeeeee")
         return {
             'statusCode': 200,
             'body': json.dumps(sizes_list)
