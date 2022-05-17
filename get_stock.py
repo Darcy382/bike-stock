@@ -1,5 +1,5 @@
 from urllib.request import urlopen
-from constants import HTML_SEARCH_TAG, HTML_TAG_LEN, SIZE_STOCK_LEN
+from constants import CANYON_URL, HTML_SEARCH_TAG, HTML_TAG_LEN, SIZE_STOCK_LEN
 
 def get_html(url):
     page = urlopen(url)
@@ -14,3 +14,5 @@ def find_stock(html):
         sizes.append(html[index+HTML_TAG_LEN:index+HTML_TAG_LEN+SIZE_STOCK_LEN].strip())
         html = html[index+HTML_TAG_LEN+SIZE_STOCK_LEN:]
     return sizes
+
+print(find_stock(get_html(CANYON_URL)))

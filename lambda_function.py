@@ -26,5 +26,5 @@ def lambda_handler(event, context):
         }
     except Exception as e:
         Twilio.send_text("bike-stock-check failed with with: {}".format(e))
-        Twilio.make_call(MY_PHONE_NUMBER)
+        # Twilio.make_call(MY_PHONE_NUMBER)
         
