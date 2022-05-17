@@ -17,6 +17,7 @@ def lambda_handler(event, context):
         sizes_list = find_stock(canyon_html)
         old_stock = get_old_stock()
         if old_stock != ("\n").join(sizes_list):
+            print("putting in old stock")
             # Twilio.send_text(MY_PHONE_NUMBER, "ALERT: Canyon has updated their stock" + "\n".join(sizes_list))
             Twilio.make_call(MY_PHONE_NUMBER)
             table.put_item(Item={'bike-name': BIKE_KEY, 'stock': ("\n").join(sizes_list)})
@@ -25,6 +26,7 @@ def lambda_handler(event, context):
             'body': json.dumps(sizes_list)
         }
     except Exception as e:
+        print(e)
         # Twilio.send_text("bike-stock-check failed with with: {}".format(e))
         Twilio.make_call(MY_PHONE_NUMBER)
         
