@@ -12,7 +12,8 @@ def get_old_stock():
     return table.get_item(Key={'bike-name': BIKE_KEY})['Item']['stock']
     
 def lambda_handler(event, context):
-    try: 
+    try:
+        print("Hello!!!!")
         canyon_html = get_html(CANYON_URL)
         sizes_list = find_stock(canyon_html)
         old_stock = get_old_stock()
