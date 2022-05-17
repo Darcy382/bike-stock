@@ -13,8 +13,8 @@ def get_old_stock():
     
 def lambda_handler(event, context):
     try:
-        print("Hello!!!!")
         canyon_html = get_html(CANYON_URL)
+        print("Hello!!!!")
         sizes_list = find_stock(canyon_html)
         old_stock = get_old_stock()
         if old_stock != ("\n").join(sizes_list):
