@@ -15,5 +15,3 @@ def find_stock(html):
         sizes.append(html[index+HTML_TAG_LEN:index+HTML_TAG_LEN+SIZE_STOCK_LEN].strip())
         html = html[index+HTML_TAG_LEN+SIZE_STOCK_LEN:]
     return sizes
-
-print(find_stock(get_html(CANYON_URL)))
