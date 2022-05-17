@@ -10,7 +10,7 @@ def get_html(url):
 
 def find_stock(html):
     sizes = []
-    for i in range(4):
+    for i in range(7):
         index = html.find(HTML_SEARCH_TAG)
         sizes.append(html[index+HTML_TAG_LEN:index+HTML_TAG_LEN+SIZE_STOCK_LEN].strip())
         html = html[index+HTML_TAG_LEN+SIZE_STOCK_LEN:]
