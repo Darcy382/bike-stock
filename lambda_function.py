@@ -18,7 +18,7 @@ def lambda_handler(event, context):
         print("putting in old stock")
         old_stock = get_old_stock()
         if old_stock != ("\n").join(sizes_list):
-            # Twilio.send_text(MY_PHONE_NUMBER, "ALERT: Canyon has updated their stock" + "\n".join(sizes_list))
+            Twilio.send_text(MY_PHONE_NUMBER, "ALERT: Canyon has updated their stock" + "\n".join(sizes_list))
             Twilio.make_call(MY_PHONE_NUMBER)
             table.put_item(Item={'bike-name': BIKE_KEY, 'stock': ("\n").join(sizes_list)})
         return {
@@ -27,6 +27,6 @@ def lambda_handler(event, context):
         }
     except Exception as e:
         print(e)
-        # Twilio.send_text("bike-stock-check failed with with: {}".format(e))
+        Twilio.send_text("bike-stock-check failed with with: {}".format(e))
         Twilio.make_call(MY_PHONE_NUMBER)
         
