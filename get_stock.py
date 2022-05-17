@@ -2,7 +2,6 @@ from urllib.request import urlopen
 from constants import CANYON_URL, HTML_SEARCH_TAG, HTML_TAG_LEN, SIZE_STOCK_LEN
 
 def get_html(url):
-    print(url)
     page = urlopen(url)
     
     html_bytes = page.read()
